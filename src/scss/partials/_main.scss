@@ -1,16 +1,10 @@
 html,
 body {
-  background-color: yellow;
+
   height: 100%;
   width: 100%;
   margin: 0px;
   padding: 0px;
-}
-
-.filters {
-  height: 0;
-  width: 0;
-  display: none;
 }
 
 .gooey {
@@ -25,12 +19,13 @@ body {
 }
 .group-new{
   left:50%;
-  filter:url("#fancy-goo");
+  filter:url('#fancy-goo');
 }
 .rect{
   width:100px;
   height:100px;
-  background:pink;
+  background-color: pink !important;
+  color: green;
   position:absolute;
   left:50%;
   top:50%;
@@ -76,15 +71,17 @@ body {
   align-items: center;
   justify-content: center;
 
-  #world {
-    width: 20vw;
-    height: 20vw;
-    background-color: blue;
-    border-radius: 50%;
-  }
 
-  #drop {
-    width: 1.5%;
-  }
 
+}
+
+#world {
+  width: 20vw;
+  height: 20vw;
+  background-color: blue;
+  border-radius: 50%;
+}
+
+#drop {
+  width: 1.5%;
 }
