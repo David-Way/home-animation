@@ -38,25 +38,34 @@
     }
 
     .gooey {
-      filter:url("#fancy-goo");
+      filter: url("#fancy-goo");
+      -webkit-filter: url("#fancy-goo");
+      -moz-filter: url("#fancy-goo");
     }
 
-    #world {
+    #world-container, #world {
       z-index: 1000;
       position: relative;
       width: 20vw;
       height: 20vw;
       background-color: #fff;
       border-radius: 50%;
+    }
+
+    #world {
       background-image: url(assets/img/pale_blue.svg);
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      background-size: cover;
     }
 
     #drop {
       z-index: 999;
       width: 30px;
       height: 30px;
+      width: 2.5vw;
+      height: 2.5vw;
       background-color: #DBF6F9;
-
       border-radius: 50%;
       position: absolute;
       margin-left: auto;
@@ -64,8 +73,21 @@
       left: 0;
       right: 0;
       bottom: 0;
-      animation: drop-anim cubic-bezier(.66,.88,.7,1.31) 4.8s infinite;
+      animation: drop-anim ease-in 4.8s infinite;
+    }
 
+    #pool {
+      display:block;
+      width: 18vw;
+      z-index: 999;
+      position: absolute;
+      margin-left: auto;
+      margin-right: auto;
+      left: -160px;
+      right: -160px;
+      bottom: -160px;
+      filter: none !important;
+      background-image: url(assets/img/pool.svg);
     }
 
     @keyframes drop-anim{
@@ -78,18 +100,18 @@
       62% {
         transform:translateY(28px);
       }
-      77% {
+      77%, 100% {
+        transform:translateY(152px);
+      }
+      /*80% {
         transform:translateY(140px);
       }
-      80% {
-        transform:translateY(140px);
-      }
-      90%{
-        transform:translateY(123px);
+      90%, 95%{
+        transform:translateY(103px);
       }
       100% {
-        transform:translateY(140px);
-      }
+        transform:translateY(150px);
+      }*/
     }
 
     .filters {
@@ -101,15 +123,43 @@
       width: 0;
     }
 
+    @media only screen and (max-width:980px) {
+      #drop {
+        width: 30px;
+        height: 30px;
+        width: 3.5vw;
+        height: 3.5vw;
+        background-color: tomato;
+      }
+
+      #pool {
+        width: 20vw;
+      }
+    }
+
+    @media only screen and (max-width:670px) {
+      #drop {
+        width: 30px;
+        height: 30px;
+        width: 5vw;
+        height: 5vw;
+        background-color: tomato;
+      }
+
+      #pool {
+        width: 30vw;
+      }
+    }
+
     </style>
   </head>
   <body>
 
     <div class="main gooey" role="main">
-      <div id="world">
-        <div id="drop">
-
-        </div>
+      <div id="world-container">
+        <div id="world"></div>
+        <div id="drop"></div>
+        <img id="pool" src="assets/img/pool.svg" alt="">
       </div>
     </div>
 
