@@ -15,64 +15,11 @@
     <script src="assets/components/modernizr.js"></script>
 
     <style media="screen">
-    html,
-    body {
-
+    html, body {
       height: 100%;
       width: 100%;
       margin: 0px;
       padding: 0px;
-    }
-
-    .gooey {
-      filter:url("#fancy-goo");
-    }
-    .group{
-      position:absolute;
-      top:0;
-      left:0;
-      width:50%;
-      height:100%;
-    }
-    .group-new{
-      left:50%;
-      filter:url('#fancy-goo');
-    }
-    .rect{
-      width:100px;
-      height:100px;
-      background-color: pink !important;
-      color: green;
-      position:absolute;
-      left:50%;
-      top:50%;
-      margin-top:-50px;
-      margin-left:-50px;
-    }
-
-    @keyframes rect-anim-left{
-      0%{
-        transform:translateX(-10px);
-      }
-      100%{
-        transform:translateX(-60px);
-      }
-    }
-    .rect{
-      animation:rect-anim-left ease-in-out 2s infinite alternate;
-    }
-    @keyframes rect-anim-right{
-      0%{
-        transform:translateX(10px);
-      }
-      100%{
-        transform:translateX(60px);
-      }
-    }
-    .rect+.rect{
-      height:150px;
-      margin-top:-75px;
-      animation:rect-anim-right ease-in-out 2s infinite alternate;
     }
 
     .main {
@@ -90,25 +37,59 @@
       position: relative;
     }
 
+    .gooey {
+      filter:url("#fancy-goo");
+    }
+
     #world {
+      z-index: 1000;
       position: relative;
       width: 20vw;
       height: 20vw;
-      background-color: blue;
+      background-color: #fff;
       border-radius: 50%;
+      background-image: url(assets/img/pale_blue.svg);
     }
 
     #drop {
       z-index: 999;
-      width: 2vw;
-      height: 2vw;
-      background-color: pink;
+      width: 30px;
+      height: 30px;
+      background-color: #DBF6F9;
+
       border-radius: 50%;
       position: absolute;
       margin-left: auto;
       margin-right: auto;
       left: 0;
       right: 0;
+      bottom: 0;
+      animation: drop-anim cubic-bezier(.66,.88,.7,1.31) 4.8s infinite;
+
+    }
+
+    @keyframes drop-anim{
+      0%, 20%{ /*do nothing, delay*/
+        transform:translateY(0px);
+      }
+      60% {
+        transform:translateY(30px);
+      }
+      62% {
+        transform:translateY(28px);
+      }
+      77% {
+        transform:translateY(140px);
+      }
+      80% {
+        transform:translateY(140px);
+      }
+      90%{
+        transform:translateY(123px);
+      }
+      100% {
+        transform:translateY(140px);
+      }
     }
 
     .filters {
@@ -124,25 +105,13 @@
   </head>
   <body>
 
-    <!-- <div class="group group-new">
-      <div class="rect">1</div>
-      <div class="rect">2</div>
-    </div> -->
     <div class="main gooey" role="main">
-
       <div id="world">
         <div id="drop">
 
         </div>
       </div>
-
-
-
-
     </div>
-
-
-
 
     <svg class="filters" xmlns="http://www.w3.org/2000/svg" version="1.1">
       <defs>
