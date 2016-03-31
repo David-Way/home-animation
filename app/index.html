@@ -20,6 +20,7 @@
       width: 100%;
       margin: 0px;
       padding: 0px;
+      background-color: #FCFCFC;
     }
 
     .main {
@@ -52,6 +53,10 @@
       border-radius: 50%;
     }
 
+    #world-container {
+      top: -40px;
+    }
+
     #world {
       background-image: url(assets/img/pale_blue.svg);
       -webkit-background-size: cover;
@@ -63,9 +68,10 @@
       z-index: 999;
       width: 30px;
       height: 30px;
-      width: 2.5vw;
-      height: 2.5vw;
+      width: 2.4vw;
+      height: 2.4vw;
       background-color: #DBF6F9;
+      background-color: #CFE0F1;
       border-radius: 50%;
       position: absolute;
       margin-left: auto;
@@ -86,32 +92,28 @@
       left: -160px;
       right: -160px;
       bottom: -160px;
-      filter: none !important;
       background-image: url(assets/img/pool.svg);
     }
 
     @keyframes drop-anim{
-      0%, 20%{ /*do nothing, delay*/
+      0%, 25%{ /*do nothing, delay*/
         transform:translateY(0px);
       }
       60% {
         transform:translateY(30px);
       }
       62% {
-        transform:translateY(28px);
+        transform:translateY(29px);
       }
-      77%, 100% {
-        transform:translateY(152px);
+      66% {
+        transform:translateY(30px);
       }
-      /*80% {
-        transform:translateY(140px);
+      74% {
+        transform:translateY(160px);
       }
-      90%, 95%{
-        transform:translateY(103px);
+      80%, 100% {
+        transform:translateY(160px) scale(0.1);
       }
-      100% {
-        transform:translateY(150px);
-      }*/
     }
 
     .filters {
@@ -129,7 +131,6 @@
         height: 30px;
         width: 3.5vw;
         height: 3.5vw;
-        background-color: tomato;
       }
 
       #pool {
@@ -143,7 +144,6 @@
         height: 30px;
         width: 5vw;
         height: 5vw;
-        background-color: tomato;
       }
 
       #pool {
@@ -172,10 +172,6 @@
         </filter>
       </defs>
     </svg>
-
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="assets/components/jquery.js"><\/script>');</script>
-    <script src="assets/js/scripts.min.js"></script>
 
   </body>
 </html>
