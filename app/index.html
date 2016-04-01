@@ -1,0 +1,180 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title>Pale Blue Dot</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <link href="//www.google-analytics.com" rel="dns-prefetch">
+    <link href="//ajax.googleapis.com" rel="dns-prefetch">
+    <link href="assets/css/style.min.css" rel="stylesheet">
+
+    <script src="assets/components/modernizr.js"></script>
+
+    <style media="screen">
+    html, body {
+      height: 100%;
+      width: 100%;
+      margin: 0px;
+      padding: 0px;
+      background-color: #FCFCFC;
+      background-color: #CFE0F1;
+    }
+
+    .main {
+      height: 100%;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .gooey {
+      filter: url("#fancy-goo");
+      -webkit-filter: url("#fancy-goo");
+      -moz-filter: url("#fancy-goo");
+    }
+
+    #world-container, #world {
+      z-index: 1000;
+      position: relative;
+      width: 20vw;
+      height: 20vw;
+      background-color: #fff;
+      background-color: #FCFCFC;
+      border-radius: 50%;
+    }
+
+    #world-container {
+      top: -40px;
+    }
+
+    #world {
+      background-image: url(assets/img/pale_blue.svg);
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      background-size: cover;
+    }
+
+    #drop {
+      z-index: 999;
+      width: 30px;
+      height: 30px;
+      width: 2.4vw;
+      height: 2.4vw;
+      background-color: #CFE0F1;
+      background-color: #FCFCFC;
+      background-color: #DBF6F9;
+      border-radius: 50%;
+      position: absolute;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      animation: drop-anim ease-in 4.8s infinite;
+    }
+
+    #pool {
+      display:block;
+      width: 18vw;
+      z-index: 999;
+      position: absolute;
+      margin-left: auto;
+      margin-right: auto;
+      left: -160px;
+      right: -160px;
+      bottom: -160px;
+      background-image: url(assets/img/pool.svg);
+    }
+
+    @keyframes drop-anim{
+      0%, 25%{ /*do nothing, delay*/
+        transform:translateY(0px);
+      }
+      60% {
+        transform:translateY(30px);
+      }
+      62% {
+        transform:translateY(29px);
+      }
+      66% {
+        transform:translateY(30px);
+      }
+      74% {
+        transform:translateY(160px);
+      }
+      80%, 100% {
+        transform:translateY(160px) scale(0.1);
+      }
+    }
+
+    .filters {
+      display: block;
+      position: absolute;
+      margin: 0;
+      padding: 0;
+      height: 0;
+      width: 0;
+    }
+
+    @media only screen and (max-width:980px) {
+      #drop {
+        width: 30px;
+        height: 30px;
+        width: 3.5vw;
+        height: 3.5vw;
+      }
+
+      #pool {
+        width: 20vw;
+      }
+    }
+
+    @media only screen and (max-width:670px) {
+      #drop {
+        width: 30px;
+        height: 30px;
+        width: 5vw;
+        height: 5vw;
+      }
+
+      #pool {
+        width: 30vw;
+      }
+    }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="main gooey" role="main">
+      <div id="world-container">
+        <div id="world"></div>
+        <div id="drop"></div>
+        <img id="pool" src="assets/img/pool.svg" alt="">
+      </div>
+    </div>
+
+    <svg class="filters" xmlns="http://www.w3.org/2000/svg" version="1.1">
+      <defs>
+        <filter id="fancy-goo">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+          <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+          <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+        </filter>
+      </defs>
+    </svg>
+
+  </body>
+</html>
